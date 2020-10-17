@@ -15,7 +15,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@headless-digitalpaco/nest/graphql/user": [
+        "libs/nest/graphql/user/src/index.ts"
+      ],
+      "@headless-digitalpaco/user": ["libs/user/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

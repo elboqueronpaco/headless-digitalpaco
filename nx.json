@@ -19,16 +19,21 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "accessToken": "MjhiNTMxODctYjYzMi00MThhLTkyZmUtYTFmY2NjZjdlMmZhfHJlYWQtd3JpdGU=",
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
         "canTrackAnalytics": false,
         "showUsageWarnings": true
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "backend-api-graphql": {
+      "tags": []
+    },
+    "nest-graphql-user": {
+      "tags": []
+    },
+    "user": {
+      "tags": []
+    }
+  }
 }

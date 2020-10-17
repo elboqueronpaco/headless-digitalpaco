@@ -1,7 +1,80 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "backend-api-graphql": {
+      "root": "apps/backend/api-graphql",
+      "sourceRoot": "apps/backend/api-graphql/src",
+      "projectType": "application",
+      "prefix": "backend-api-graphql",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/backend/api-graphql",
+            "main": "apps/backend/api-graphql/src/main.ts",
+            "tsConfig": "apps/backend/api-graphql/tsconfig.app.json",
+            "assets": ["apps/backend/api-graphql/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/backend/api-graphql/src/environments/environment.ts",
+                  "with": "apps/backend/api-graphql/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "backend-api-graphql:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/backend/api-graphql/**/*.ts"]
+          }
+        }
+      }
+    },
+    "nest-graphql-user": {
+      "root": "libs/nest/graphql/user",
+      "sourceRoot": "libs/nest/graphql/user/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/nest/graphql/user/**/*.ts"]
+          }
+        }
+      }
+    },
+    "user": {
+      "root": "libs/user",
+      "sourceRoot": "libs/user/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/user/**/*.ts"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/nest"
+  },
+  "defaultProject": "backend-api-graphql"
 }
