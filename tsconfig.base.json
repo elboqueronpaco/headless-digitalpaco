@@ -19,7 +19,8 @@
       "@headless-digitalpaco/nest/graphql/user": [
         "libs/nest/graphql/user/src/index.ts"
       ],
-      "@headless-digitalpaco/user": ["libs/user/src/index.ts"]
+      "@headless-digitalpaco/user": ["libs/user/src/index.ts"],
+      "@headless-digitalpaco/database": ["libs/database/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

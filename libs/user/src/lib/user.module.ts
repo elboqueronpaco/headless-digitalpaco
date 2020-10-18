@@ -5,6 +5,7 @@ import { configuration } from './config/configuration';
 import { validationSchema } from './config/validation'
 import { UsersModule } from './users/users.module';
 
+
 @Module({
   imports: [
     GraphQLModule.forRoot({
