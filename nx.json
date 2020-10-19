@@ -37,6 +37,13 @@
     },
     "database": {
       "tags": []
+    },
+    "frontend-app-headless-digitalpaco": {
+      "tags": []
+    },
+    "frontend-app-headless-digitalpaco-e2e": {
+      "tags": [],
+      "implicitDependencies": ["frontend-app-headless-digitalpaco"]
     }
   }
 }

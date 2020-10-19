@@ -85,10 +85,96 @@
           }
         }
       }
+    },
+    "frontend-app-headless-digitalpaco": {
+      "root": "apps/frontend/app-headless-digitalpaco",
+      "sourceRoot": "apps/frontend/app-headless-digitalpaco",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/next:build",
+          "options": {
+            "root": "apps/frontend/app-headless-digitalpaco",
+            "outputPath": "dist/apps/frontend/app-headless-digitalpaco"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "frontend-app-headless-digitalpaco:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "frontend-app-headless-digitalpaco:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "builder": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "frontend-app-headless-digitalpaco:build:production"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/frontend/app-headless-digitalpaco/**/*.{ts,tsx}"
+            ]
+          }
+        }
+      }
+    },
+    "frontend-app-headless-digitalpaco-e2e": {
+      "root": "apps/frontend/app-headless-digitalpaco-e2e",
+      "sourceRoot": "apps/frontend/app-headless-digitalpaco-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/frontend/app-headless-digitalpaco-e2e/cypress.json",
+            "tsConfig": "apps/frontend/app-headless-digitalpaco-e2e/tsconfig.e2e.json",
+            "devServerTarget": "frontend-app-headless-digitalpaco:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "frontend-app-headless-digitalpaco:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/frontend/app-headless-digitalpaco-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
     "defaultCollection": "@nrwl/nest"
   },
-  "defaultProject": "backend-api-graphql"
+  "defaultProject": "backend-api-graphql",
+  "schematics": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "styled-components",
+        "linter": "eslint"
+      }
+    }
+  }
 }

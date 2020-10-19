@@ -4,6 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { configuration } from './config/configuration';
 import { validationSchema } from './config/validation'
 import { UsersModule } from './users/users.module';
+import { DatabaseModule } from '@headless-digitalpaco/database'
 
 
 @Module({
@@ -16,6 +17,7 @@ import { UsersModule } from './users/users.module';
       load: [configuration],
       validationSchema
     }),
+    DatabaseModule,
     UsersModule
   ],
   controllers: [],
